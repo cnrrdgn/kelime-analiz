@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kelime Analiz Aracı</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Kelime Analiz Aracı</h1>
+        <form method="POST">
+            <input type="text" name="kelime" placeholder="Bir kelime gir..." value="{{ kelime }}" required>
+            <button type="submit">Analiz Et</button>
+        </form>
+
+        {% if sonuc %}
+            <div class="sonuc">
+                {% if sonuc.hata %}
+                    <p class="hata">{{ sonuc.hata }}</p>
+                {% else %}
+                    <p><strong>Kök:</strong> {{ sonuc.kök }}</p>
+                    <p><strong>Tür:</strong> {{ sonuc.tür }}</p>
+                    <p><strong>Ekler:</strong> {{ sonuc.ekler }}</p>
+                    <p><strong>Anlam:</strong> {{ sonuc.anlam }}</p>
+                    <p><strong>Kullanım:</strong> {{ sonuc.örnek }}</p>
+                    <p><a href="{{ sonuc.tdk_link }}" target="_blank">TDK'de Görüntüle</a></p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
