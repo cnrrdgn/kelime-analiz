@@ -1,6 +1,21 @@
 from flask import Flask, render_template, request
+
+import nltk
+import os
+
+# NLTK data yolunu ekle
+nltk.data.path.append('/opt/render/nltk_data')
+
+# Eğer 'turkish' tokenizer yoksa indir
+punkt_path = '/opt/render/nltk_data/tokenizers/punkt_tab/turkish'
+if not os.path.exists(punkt_path):
+    nltk.download('punkt_tab', download_dir='/opt/render/nltk_data')
+
+
 import zeyrek
 import requests
+
+
 
 app = Flask(__name__)
 analyzer = zeyrek.MorphAnalyzer()
