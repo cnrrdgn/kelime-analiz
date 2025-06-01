@@ -28,7 +28,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🧪 Kelime Analiz Aracı</h1>
+        <h1>Kelime Analiz Aracı</h1>
 
         <form method="POST">
             <input type="text" name="kelime" placeholder="🔍 Bir kelime gir..." value="{{ kelime }}" required>
@@ -45,7 +45,7 @@
                     <p>🧩 <strong>Ekler:</strong> {{ sonuc.ekler }}</p>
                     <p>📖 <strong>Anlam:</strong> {{ sonuc.anlam }}</p>
                     <p>💬 <strong>Kullanım:</strong> {{ sonuc.örnek }}</p>
-                    <p>🔗 <a class="tdk-button" href="{{ sonuc.tdk_link }}" target="_blank">TDK'de Görüntüle</a></p>
+                    <p><a class="tdk-button" href="{{ sonuc.tdk_link }}" target="_blank">🔗 TDK'de Görüntüle</a></p>
                 {% endif %}
             </div>
         {% endif %}
